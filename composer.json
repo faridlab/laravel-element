@@ -1,0 +1,14 @@
+{
+    "name": "utmostphere/laravel-molecule",
+    "description": "Laravel Molecule",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Farid Hidayat",
+            "email": "e.faridhidayat@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
