@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Molecule\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Resources;
+use Molecule\Models\Resources;
 
 // EXCEPTIONS
 use Illuminate\Auth\AuthenticationException;

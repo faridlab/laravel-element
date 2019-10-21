@@ -3,7 +3,7 @@
 namespace Molecule\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Molecule\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Resources;
 use Yajra\Datatables\Datatables;
@@ -65,10 +65,6 @@ class ApiResourcesController extends Controller
   public function index(Request $request) {
     try {
 
-      if($request->get('format') == 'datatable') {
-        return $this->dataTable($request);
-      }
-
       $limit = intval($request->get('limit', 25));
       if($limit > 100) {
         $limit = 100;
@@ -128,10 +124,6 @@ class ApiResourcesController extends Controller
   public function trash(Request $request) {
     try {
       $this->model = $this->model->onlyTrashed();
-      if($request->get('format') == 'datatable') {
-        return $this->dataTable($request);
-      }
-
       $limit = intval($request->get('limit', 25));
       if($limit > 100) {
         $limit = 100;
@@ -162,7 +154,6 @@ class ApiResourcesController extends Controller
       return response()->json($this->response, 200);
 
     } catch(\Exception $e) {
-      dd($e);
       $this->response['code'] = $e->status;
       $this->response['status'] = $e->getMessage();
       $this->response['message'] = $e->getMessage();
@@ -171,24 +162,6 @@ class ApiResourcesController extends Controller
 
       return response()->json($this->response, $e->status);
     }
-  }
-
-  public function dataTable(Request $request) {
-
-    if(!empty(trim($request->input('search.value')))) {
-      foreach ($request->get('columns') as $key => $value) {
-          if($value['searchable']) {
-              $this->model->orWhere($value['data'], 'LIKE', '%' . trim($request->input('search.value')) . '%');
-          }
-      }
-    }
-
-    if($request->get('order')) {
-        foreach ($request->get('order') as $key => $value) {
-            $this->model->orderBy($request->get('columns')[$value['column']]['data'], $value['dir']);
-        }
-    }
-    return Datatables::of($this->model->get())->make(true);
   }
 
   /**
