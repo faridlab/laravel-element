@@ -1,12 +1,12 @@
 <?php
 
-namespace Molecule\Models;
+namespace Element\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Model;
 use DB;
-use Molecule\Observers\Observer as Observer;
+use Element\Observers\Observer as Observer;
 
 class Resources extends Model {
 

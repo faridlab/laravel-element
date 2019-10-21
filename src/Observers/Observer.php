@@ -1,6 +1,6 @@
 <?php
 
-namespace Molecule\Observers;
+namespace Element\Observers;
 
 class Observer
 {

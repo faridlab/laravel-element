@@ -1,9 +1,9 @@
 <?php
 
-namespace Molecule\Controllers\Api;
+namespace Element\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Molecule\Controllers\Controller;
+use Element\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Resources;
 use Yajra\Datatables\Datatables;

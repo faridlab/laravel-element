@@ -1,6 +1,6 @@
 <?php
 
-namespace Molecule\Controllers;
+namespace Element\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
